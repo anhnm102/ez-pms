@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "author": "anhnm",
   "license": "ISC",
+  "description": "",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
+    "build": "",
     "build:prod": "npm run env -s && ng build --prod",
     "heroku-postbuild": "npm run build:prod",
     "start": "node index.js",
