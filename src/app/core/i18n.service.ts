@@ -55,7 +55,7 @@ export class I18nService {
   set language(language: string) {
     // language = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang();
     //TODO: fixed en-us
-    language = 'en-US'
+    language = 'en-US';
     let isSupportedLanguage = includes(this.supportedLanguages, language);
 
     // If no exact match is found, search without the region

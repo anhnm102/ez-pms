@@ -1,7 +1,7 @@
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-import { ObservableMedia } from '@angular/flex-layout';
+import { MediaObserver } from '@angular/flex-layout';
 
 import { AuthenticationService, I18nService } from '@app/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
@@ -18,7 +18,7 @@ export class ShellComponent implements OnInit {
     public overlayContainer: OverlayContainer,
     private router: Router,
     private titleService: Title,
-    private media: ObservableMedia,
+    private media: MediaObserver,
     private authenticationService: AuthenticationService,
     private i18nService: I18nService
   ) {}

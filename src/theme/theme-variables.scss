@@ -24,6 +24,6 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
 // dark-theme
 $dark-primary: mat-palette($mat-indigo);
-$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
-$dark-warn:    mat-palette($mat-red);
-$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$dark-accent: mat-palette($mat-amber, A200, A100, A400);
+$dark-warn: mat-palette($mat-red);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);

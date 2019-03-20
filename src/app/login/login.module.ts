@@ -7,7 +7,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '@app/shared';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import { MatMenuModule, MatCardModule, MatFormFieldModule, MatSlideToggleModule, MatButtonModule, MatInputModule } from '@angular/material';
+import {
+  MatMenuModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatSlideToggleModule,
+  MatButtonModule,
+  MatInputModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
