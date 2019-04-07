@@ -19,6 +19,7 @@ export class QuoteService {
   getRandomQuote(context: RandomQuoteContext): Observable<string> {
     return this.httpClient
       .cache()
+      .disableApiPrefix()
       .get(routes.quote(context))
       .pipe(
         map((body: any) => body.value),

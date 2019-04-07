@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       .getRandomQuote({ category: 'dev' })
       .pipe(
         finalize(() => {
-          setTimeout(() => (this.isLoading = false), 3000);
+          setTimeout(() => (this.isLoading = false), 2000);
         })
       )
       .subscribe((quote: string) => {

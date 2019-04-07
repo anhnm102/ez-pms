@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         credentials => {
           log.debug(`${credentials.username} successfully logged in`);
+          this.authenticationService.setCredentials(credentials);
           this.route.queryParams.subscribe(params =>
             this.router.navigate([params.redirect || '/'], { replaceUrl: true })
           );

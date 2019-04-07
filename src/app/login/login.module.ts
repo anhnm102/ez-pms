@@ -18,17 +18,17 @@ import {
 
 @NgModule({
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    TranslateModule,
     SharedModule,
-    FlexLayoutModule,
-    MatMenuModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    MatInputModule,
+    ReactiveFormsModule,
+    // CommonModule,
+    // TranslateModule,
+    // FlexLayoutModule,
+    // MatMenuModule,
+    // MatCardModule,
+    // MatFormFieldModule,
+    // MatSlideToggleModule,
+    // MatButtonModule,
+    // MatInputModule,
     LoginRoutingModule
   ],
   declarations: [LoginComponent]

@@ -1,7 +1,12 @@
 <div fxFlex>
   <mat-sidenav-container fxFill>
-    <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" [disableClose]="!isMobile"
-                 ngClass.gt-sm="has-border">
+    <mat-sidenav
+      #sidenav
+      [mode]="isMobile ? 'over' : 'side'"
+      [opened]="!isMobile"
+      [disableClose]="!isMobile"
+      ngClass.gt-sm="has-border"
+    >
       <mat-toolbar color="primary">
         <span translate>APP_NAME</span>
         <div fxFlex></div>
@@ -12,7 +17,7 @@
           <mat-menu #userMenu="matMenu">
             <mat-list>
               <mat-list-item>
-                <span translate>Logged in as</span>&nbsp;<b>{{username}}</b>
+                <span translate>Logged in as</span>&nbsp;<b>{{ username }}</b>
               </mat-list-item>
               <mat-divider></mat-divider>
             </mat-list>
@@ -37,8 +42,8 @@
             <span translate>Home</span>
           </a>
           <mat-divider></mat-divider>
-          <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
-            <span translate>Customer</span>
+          <a mat-list-item routerLink="/staff" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+            <span translate>Staff</span>
           </a>
           <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
             <span translate>About</span>
@@ -52,9 +57,9 @@
         <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
           <mat-icon>menu</mat-icon>
         </button>
-        <span>{{title}}</span>
+        <span>{{ title }}</span>
         <button mat-icon-button (click)="changeTheme()">
-          <mat-icon>{{this.theme === 'dark-theme' ? 'brightness_3' : 'brightness_7'}}</mat-icon>
+          <mat-icon>{{ this.theme === 'dark-theme' ? 'brightness_3' : 'brightness_7' }}</mat-icon>
         </button>
       </mat-toolbar>
       <router-outlet></router-outlet>
