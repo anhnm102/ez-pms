@@ -1,36 +1,52 @@
-<mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
+<mat-card class="m-1">
   <form (ngSubmit)="submit()" [formGroup]="submitForm" novalidate>
-    <div fxLayout="column">
+    <div class="grid form">
       <mat-form-field>
         <input
           type="text"
           matInput
-          formControlName="username"
-          autocomplete="username"
-          [placeholder]="'Username' | translate"
+          formControlName="name"
+          autocomplete="name"
+          [placeholder]="'Staff Name' | translate"
         />
-        <mat-error *ngIf="submitForm.controls.username.valid || submitForm.controls.username.untouched">
-          <span translate>Username is required</span>
+        <mat-error *ngIf="submitForm.controls.name.valid || submitForm.controls.name.untouched">
+          <span translate>Staff Name is required</span>
         </mat-error>
       </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="email" autocomplete="Email" [placeholder]="'Email' | translate" />
+        <mat-error *ngIf="submitForm.controls.email.invalid">
+          <span translate>Not a valid email</span>
+        </mat-error>
+      </mat-form-field>
+
       <mat-form-field>
         <input
-          type="password"
+          type="text"
           matInput
-          formControlName="password"
-          autocomplete="current-password"
-          [placeholder]="'Password' | translate"
-          required
+          formControlName="phone"
+          autocomplete="Phone Number"
+          [placeholder]="'Phone Number' | translate"
         />
-        <mat-error *ngIf="submitForm.controls.password.valid || submitForm.controls.password.untouched">
-          <span translate>Password is required</span>
-        </mat-error>
       </mat-form-field>
-      <mat-slide-toggle color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
-      <br />
+
+      <mat-form-field>
+        <mat-select placeholder="User Permission">
+          <mat-option *ngFor="let role of roles" value="role">Role {{ role }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="grid function">
+      <button *ngIf="isEditMode" mat-raised-button color="warn" type="button" (click)="delete()">
+        <span translate>Delete</span>
+      </button>
+      <button mat-raised-button type="button" (click)="cancel()">
+        <span translate>Cancel</span>
+      </button>
       <button mat-raised-button color="primary" type="submit" [disabled]="submitForm.invalid || isLoading">
         <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
-        <span translate>Login</span>
+        <span translate>Save</span>
       </button>
     </div>
   </form>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { StaffService } from '../staff.service';
 
 @Component({
   selector: 'app-staff-edit',
@@ -9,22 +11,77 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class StaffEditComponent implements OnInit {
   submitForm: FormGroup;
   isLoading = false;
+  roles = [1, 2, 3, 4];
+  isEditMode = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private staffService: StaffService
+  ) {
     this.createForm();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(v => {
+      if (v && v.id) {
+        this.isEditMode = true;
+        this.findById(v.id);
+      }
+    });
+  }
 
   submit() {
-    console.log('submitted');
+    const data = this.submitForm.value;
+    data.role = 'User';
+    data.password = '1234';
+
+    this.staffService.create(data).subscribe(v => {
+      console.log(v);
+      this.cancel();
+    });
+  }
+
+  findById(id) {
+    this.staffService.findById(id).subscribe(user => {
+      const { _id: id, name, email, role, phone } = <any>user;
+      this.submitForm.patchValue({
+        id: id,
+        name: name,
+        email: email,
+        permission: 1,
+        phone: 123
+      });
+    });
   }
 
   private createForm() {
     this.submitForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      remember: true
+      id: [''],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      permission: [''],
+      phone: ['']
     });
   }
+
+  cancel() {
+    this.router.navigate(['/staff']);
+  }
+
+  delete() {
+    this.staffService.delete(this.submitForm.value.id).subscribe(rs => {
+      this.cancel();
+    });
+  }
+}
+
+export interface UserDto {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  role: string;
+  password?: string;
 }

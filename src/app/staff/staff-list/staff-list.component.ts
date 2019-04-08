@@ -22,12 +22,12 @@ export class StaffListComponent implements OnInit {
     });
   }
 
-  editStaff(staff) {
-    console.log(staff);
+  editStaff({ _id }) {
+    this.route.navigate([`staff/edit/${_id}`]);
   }
 
   addStaff() {
     const id = 1;
-    // this.route.navigate([`edit/${id}`]);
+    this.route.navigate([`staff/add`]);
   }
 }

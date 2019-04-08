@@ -10,4 +10,16 @@ export class StaffService {
   findAll() {
     return this.httpClient.get('/users');
   }
+
+  findById(id) {
+    return this.httpClient.get('/users/' + id);
+  }
+
+  create(user) {
+    return this.httpClient.post('/users', user);
+  }
+
+  delete(id) {
+    return this.httpClient.delete('/users/' + id);
+  }
 }
