@@ -11,7 +11,9 @@ export class SignupComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {
+    this.createForm();
+  }
 
   ngOnInit() {}
 
