@@ -37,15 +37,11 @@ export class AuthenticationService {
    * @return The user credentials.
    */
   login(context: LoginContext): Observable<Credentials> {
-    // Replace by proper authentication call
     const data = {
       email: context.username,
       password: context.password
     };
-    return this.httpClient.post<any>('/users/login', data);
-    // this.setCredentials(data, context.remember);
-    // return of(data);
-    // return this.httpService.post<any>('users/login', context);
+    return this.httpClient.post<any>('/login', data);
   }
 
   /**

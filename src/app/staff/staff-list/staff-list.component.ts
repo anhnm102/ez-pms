@@ -8,9 +8,12 @@ import { StaffService } from '../staff.service';
   styleUrls: ['./staff-list.component.scss']
 })
 export class StaffListComponent implements OnInit {
-  items;
+  staffs: any;
+  displayedColumns: string[];
 
-  constructor(private route: Router, private staffService: StaffService) {}
+  constructor(private route: Router, private staffService: StaffService) {
+    this.displayedColumns = ['name', 'email', 'phone', 'permission'];
+  }
 
   ngOnInit() {
     this.list();
@@ -18,7 +21,7 @@ export class StaffListComponent implements OnInit {
 
   list() {
     this.staffService.findAll().subscribe(v => {
-      this.items = v;
+      this.staffs = v;
     });
   }
 

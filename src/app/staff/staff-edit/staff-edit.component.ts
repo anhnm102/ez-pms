@@ -11,7 +11,7 @@ import { StaffService } from '../staff.service';
 export class StaffEditComponent implements OnInit {
   submitForm: FormGroup;
   isLoading = false;
-  roles = [1, 2, 3, 4];
+  permissions = ['Basic', 'Medium', 'High'];
   isEditMode = false;
 
   constructor(
@@ -34,10 +34,19 @@ export class StaffEditComponent implements OnInit {
 
   submit() {
     const data = this.submitForm.value;
-    data.role = 'User';
+    if (!data.role) {
+      data.role = 'User';
+    }
     data.password = '1234';
 
-    this.staffService.create(data).subscribe(v => {
+    if (this.isEditMode) {
+      return this.staffService.update(data, data.id).subscribe(v => {
+        console.log(v);
+        this.cancel;
+      });
+    }
+
+    return this.staffService.create(data).subscribe(v => {
       console.log(v);
       this.cancel();
     });

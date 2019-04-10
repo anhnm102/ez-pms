@@ -32,8 +32,8 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-select placeholder="User Permission">
-          <mat-option *ngFor="let role of roles" value="role">Role {{ role }}</mat-option>
+        <mat-select placeholder="User Permission" formControlName="permission">
+          <mat-option *ngFor="let permission of permissions" [value]="permission">{{ permission }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
