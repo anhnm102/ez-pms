@@ -44,6 +44,15 @@ export class AuthenticationService {
     return this.httpClient.post<any>('/login', data);
   }
 
+  signup(context): Observable<Credentials> {
+    const data = {
+      name: context.username,
+      email: context.username,
+      password: context.password
+    };
+    return this.httpClient.post<any>('/register', data);
+  }
+
   /**
    * Logs out the user and clear credentials.
    * @return True if the user was logged out successfully.

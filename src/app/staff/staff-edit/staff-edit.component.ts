@@ -34,10 +34,7 @@ export class StaffEditComponent implements OnInit {
 
   submit() {
     const data = this.submitForm.value;
-    if (!data.role) {
-      data.role = 'User';
-    }
-    data.password = '1234';
+    data.password = '1';
 
     if (this.isEditMode) {
       return this.staffService.update(data, data.id).subscribe(v => {
