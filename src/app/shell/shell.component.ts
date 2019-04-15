@@ -15,6 +15,7 @@ import { PermissionService } from '../staff/permission/permission.service';
 export class ShellComponent implements OnInit {
   @HostBinding('class') theme: any;
   showStaff = false;
+  showCustomer = false;
 
   constructor(
     public overlayContainer: OverlayContainer,
@@ -30,6 +31,7 @@ export class ShellComponent implements OnInit {
     this.permissionService.find().subscribe(p => {
       this.permissionService.setPermission(p);
       this.showStaff = this.permissionService.permission.canFindAllUser();
+      this.showCustomer = this.permissionService.permission.canFindAllCustomer();
     });
   }
 

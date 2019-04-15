@@ -18,9 +18,7 @@ export class PermissionService {
   }
 
   setPermission(p) {
-    if (this.authService.credentials.role === 'Owner') {
-      this.permission.isOwner = true;
-    }
+    this.permission.isOwner = this.authService.credentials.role === 'Owner';
     this._permission.actions = p.actions;
   }
 

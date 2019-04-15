@@ -47,10 +47,14 @@
               <span translate>Staff</span>
             </a>
           </ng-container>
-          <mat-divider></mat-divider>
-          <a mat-list-item routerLink="/customer" routerLinkActive="active" (click)="isMobile && sidenav.close()">
-            <span translate>Customer</span>
-          </a>
+
+          <ng-container *ngIf="showCustomer">
+            <mat-divider></mat-divider>
+            <a mat-list-item routerLink="/customer" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+              <span translate>Customer</span>
+            </a>
+          </ng-container>
+
           <mat-divider></mat-divider>
           <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
             <span translate>About</span>
