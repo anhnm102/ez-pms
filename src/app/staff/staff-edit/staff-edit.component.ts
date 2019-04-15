@@ -34,15 +34,16 @@ export class StaffEditComponent implements OnInit {
 
   submit() {
     const data = this.submitForm.value;
-    data.password = '1';
 
     if (this.isEditMode) {
       return this.staffService.update(data, data.id).subscribe(v => {
         console.log(v);
-        this.cancel;
+        this.cancel();
       });
     }
 
+    // set default password = 1
+    data.password = '1';
     return this.staffService.create(data).subscribe(v => {
       console.log(v);
       this.cancel();
@@ -51,13 +52,13 @@ export class StaffEditComponent implements OnInit {
 
   findById(id) {
     this.staffService.findById(id).subscribe(user => {
-      const { _id: id, name, email, role, phone } = <any>user;
+      const { _id: id, name, email, role, phone, permission } = <any>user;
       this.submitForm.patchValue({
         id: id,
         name: name,
         email: email,
-        permission: 1,
-        phone: 123
+        permission: permission,
+        phone: phone
       });
     });
   }
