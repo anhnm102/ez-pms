@@ -17,10 +17,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.quoteService
-      .getRandomQuote({ category: 'dev' })
+      .getRandomQuote()
       .pipe(
         finalize(() => {
-          setTimeout(() => (this.isLoading = false), 2000);
+          setTimeout(() => (this.isLoading = false), 1000);
         })
       )
       .subscribe((quote: string) => {
