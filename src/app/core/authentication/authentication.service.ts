@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export interface Credentials {
   // Customize received credentials here
   username: string;
+  role?: string;
   token: string;
 }
 

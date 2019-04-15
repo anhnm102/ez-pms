@@ -29,6 +29,10 @@ export class StaffListComponent implements OnInit {
     this.route.navigate([`staff/edit/${_id}`]);
   }
 
+  permission() {
+    this.route.navigate([`staff/permission/`]);
+  }
+
   addStaff() {
     const id = 1;
     this.route.navigate([`staff/add`]);

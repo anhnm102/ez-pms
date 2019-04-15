@@ -5,6 +5,7 @@ import { MediaObserver } from '@angular/flex-layout';
 
 import { AuthenticationService, I18nService } from '@app/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { PermissionService } from '../staff/permission/permission.service';
 
 @Component({
   selector: 'app-shell',
@@ -13,6 +14,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 })
 export class ShellComponent implements OnInit {
   @HostBinding('class') theme: any;
+  showStaff = false;
 
   constructor(
     public overlayContainer: OverlayContainer,
@@ -20,10 +22,16 @@ export class ShellComponent implements OnInit {
     private titleService: Title,
     private media: MediaObserver,
     private authenticationService: AuthenticationService,
+    private permissionService: PermissionService,
     private i18nService: I18nService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.permissionService.find().subscribe(p => {
+      this.permissionService.setPermission(p);
+      this.showStaff = this.permissionService.permission.canFindAllUser();
+    });
+  }
 
   changeTheme() {
     this.theme = this.theme == 'dark-theme' ? 'default-theme' : 'dark-theme';

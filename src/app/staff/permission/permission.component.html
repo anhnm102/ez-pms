@@ -1,0 +1,45 @@
+<mat-card class="m-1">
+  <mat-card-header>
+    Setup which sections are accessible to each user permission level. All logged in staff can access the calendar, and
+    owner accounts have full system access.
+  </mat-card-header>
+
+  <mat-card-content>
+    <section class="grid fill">
+      <div class="grid-header first"></div>
+      <div class="grid-header low">Low</div>
+      <div class="grid-header medium">Medium</div>
+      <div class="grid-header high">High</div>
+      <div>Add Staffs</div>
+      <div>Edit Staffs</div>
+      <div>Delete Staffs</div>
+      <div>Find All Staffs</div>
+      <div>Find One Staff</div>
+      <div>Add Customers</div>
+      <div>Edit Customers</div>
+      <div>Delete Customers</div>
+      <div>Find All Customers</div>
+      <div>Find One Customer</div>
+
+      <ng-container *ngFor="let l of low">
+        <mat-checkbox class="text-center" [(ngModel)]="l.check"></mat-checkbox>
+      </ng-container>
+
+      <ng-container *ngFor="let m of medium">
+        <mat-checkbox class="text-center" [(ngModel)]="m.check"></mat-checkbox>
+      </ng-container>
+
+      <ng-container *ngFor="let h of high">
+        <mat-checkbox class="text-center" [(ngModel)]="h.check"></mat-checkbox>
+      </ng-container>
+    </section>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button type="button" (click)="cancel()">
+      <span translate>Cancel</span>
+    </button>
+    <button mat-raised-button color="primary" (click)="save()">
+      <span translate>Save</span>
+    </button>
+  </mat-card-actions>
+</mat-card>

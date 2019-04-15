@@ -11,7 +11,8 @@ import { StaffService } from '../staff.service';
 export class StaffEditComponent implements OnInit {
   submitForm: FormGroup;
   isLoading = false;
-  permissions = ['Basic', 'Medium', 'High'];
+  isOwner = false;
+  permissions = ['Low', 'Medium', 'High'];
   isEditMode = false;
 
   constructor(
@@ -53,6 +54,8 @@ export class StaffEditComponent implements OnInit {
   findById(id) {
     this.staffService.findById(id).subscribe(user => {
       const { _id: id, name, email, role, phone, permission } = <any>user;
+      this.isOwner = role === 'Owner';
+
       this.submitForm.patchValue({
         id: id,
         name: name,
