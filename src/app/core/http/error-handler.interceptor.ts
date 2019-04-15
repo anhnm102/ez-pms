@@ -23,6 +23,7 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
       // Do something with the error
       log.error('Request error', response);
     }
+    alert((<any>response).error.message);
     throw response;
   }
 }
