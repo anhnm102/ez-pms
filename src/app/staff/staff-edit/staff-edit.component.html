@@ -1,0 +1,58 @@
+<form (ngSubmit)="submit()" [formGroup]="submitForm" novalidate>
+  <mat-card class="m-1">
+    <mat-card-content>
+      <div class="grid form">
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            formControlName="name"
+            autocomplete="name"
+            [placeholder]="'Staff Name' | translate"
+          />
+          <mat-error *ngIf="submitForm.controls.name.valid || submitForm.controls.name.untouched">
+            <span translate>Staff Name is required</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput formControlName="email" autocomplete="Email" [placeholder]="'Email' | translate" />
+          <mat-error *ngIf="submitForm.controls.email.invalid">
+            <span translate>Not a valid email</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            formControlName="phone"
+            autocomplete="Phone Number"
+            [placeholder]="'Phone Number' | translate"
+          />
+        </mat-form-field>
+
+        <mat-form-field *ngIf="!isOwner">
+          <mat-select placeholder="User Permission" formControlName="permission">
+            <mat-option *ngFor="let permission of permissions" [value]="permission">{{ permission }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class="grid function">
+        <button *ngIf="isEditMode" mat-raised-button color="warn" type="button" (click)="delete()">
+          <span translate>Delete</span>
+        </button>
+        <button mat-raised-button type="button" (click)="cancel()">
+          <span translate>Cancel</span>
+        </button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="submitForm.invalid || isLoading">
+          <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
+          <span translate>Save</span>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>

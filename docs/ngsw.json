@@ -1,0 +1,64 @@
+{
+  "configVersion": 1,
+  "timestamp": 1559751481819,
+  "index": "/ez-pms/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/ez-pms/5.fcca536397c0bff879a8.js",
+        "/ez-pms/6.a501c08af048caaf214f.js",
+        "/ez-pms/7.246ee18dcefb38330c8a.js",
+        "/ez-pms/common.b26aefcdb62a816c22f1.js",
+        "/ez-pms/favicon.ico",
+        "/ez-pms/index.html",
+        "/ez-pms/main.b5bd235c88c927055c9c.js",
+        "/ez-pms/polyfills.0e7ec3de86e77b29376d.js",
+        "/ez-pms/runtime.7ea532905cbdc3d68aaf.js",
+        "/ez-pms/styles.6b10cbe0f14579cf819a.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": ["/ez-pms/assets/ngx-rocket-logo.png"],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/ez-pms/5.fcca536397c0bff879a8.js": "05e085303382fecf43943713fe2f607e0041e3c1",
+    "/ez-pms/6.a501c08af048caaf214f.js": "20eaa8576afe69453ef0493aa528c970b789651e",
+    "/ez-pms/7.246ee18dcefb38330c8a.js": "d377c44718362c0ecd9a6a2f94f805fbe78f142d",
+    "/ez-pms/assets/ngx-rocket-logo.png": "0ac53fd27406fe5a36e68285315fb0012e54058e",
+    "/ez-pms/common.b26aefcdb62a816c22f1.js": "77cff5086cc65bd92263af9ef44bc7b1cb7da4e4",
+    "/ez-pms/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
+    "/ez-pms/index.html": "a0fabe2fbd9291b0f6302a9c4fb2d364312ce92c",
+    "/ez-pms/main.b5bd235c88c927055c9c.js": "21205e3fe61f31cfd021c8cce5867de63a554341",
+    "/ez-pms/polyfills.0e7ec3de86e77b29376d.js": "66795e05235a55556f28ed30880e228cdab11b48",
+    "/ez-pms/runtime.7ea532905cbdc3d68aaf.js": "70cf4236f7f31d73d7d8f5819996a2e42917c0f8",
+    "/ez-pms/styles.6b10cbe0f14579cf819a.css": "6465bb73ab645211f54c852f53b374e2d2efa6a0"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
